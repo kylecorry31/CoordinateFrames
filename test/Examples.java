@@ -64,6 +64,7 @@ public class Examples {
         assertEquals(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"));
         assertEquals(new Point(2,-1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"));
         assertEquals(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"));
+        assertEquals(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"));
     }
 
     @Test
