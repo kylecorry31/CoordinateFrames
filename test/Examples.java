@@ -1,10 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import com.kylecorry.tf.Point;
-import com.kylecorry.tf.Pose;
-import com.kylecorry.tf.Quaternion;
-import com.kylecorry.tf.Vector3;
+import com.kylecorry.tf.*;
 import org.junit.Test;
 
 /**
@@ -55,6 +52,18 @@ public class Examples {
         assertEquals(Vector3.k, new Vector3(0, 0, 8).normalize());
         assertEquals(new Vector3(3 / 5.0, 4 / 5.0, 0), otherVector3.normalize());
 
+    }
+
+    @Test
+    public void testTransforms(){
+        TF tf = new TF();
+        tf.put("Test", new Pose(new Point(1, 2, 3), new Quaternion(0, Vector3.k)));
+        assertEquals(new Transform(new Vector3(-1, -2, -3), new Quaternion(0, Vector3.k)), tf.lookup("Test"));
+        tf.put("Testing", "Test", new Pose(new Point(0, 0, 0), new Quaternion(Math.PI / 2, Vector3.k)));
+        assertEquals(new Transform(new Vector3(0, 0, 0), new Quaternion(-Math.PI / 2, Vector3.k)), tf.lookup("Testing"));
+        assertEquals(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"));
+        assertEquals(new Point(2,-1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"));
+        assertEquals(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"));
     }
 
     @Test
