@@ -5,7 +5,7 @@ package com.kylecorry.tf;
  */
 public class Point {
     public double x, y, z;
-    private final double EPSILON = 0.000000000000001;
+    private static final double EPSILON = 0.000000000000001;
 
     public static final Point origin = new Point(0, 0, 0);
 
@@ -20,6 +20,20 @@ public class Point {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    /**
+     * Create a point from the cylindrical coordinate system.
+     *
+     * @param r     The magnitude of the X-Y component.
+     * @param theta The angle around the Z axis in radians.
+     * @param z     The z value.
+     * @return The cartesian representation of the point in the cylindrical coordinate system.
+     */
+    public static Point fromCylindrical(double r, double theta, double z) {
+        double x = r * Math.cos(theta);
+        double y = r * Math.sin(theta);
+        return new Point(x, y, z);
     }
 
     /**
