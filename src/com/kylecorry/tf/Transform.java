@@ -12,4 +12,12 @@ public class Transform {
 	public Transform inverse() {
 		return new Transform(translation.multiply(-1), rotation.inverse());
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+        if (obj == null || !(obj instanceof Transform))
+            return false;
+        Transform other = (Transform) obj;
+        return other.rotation.equals(rotation) && other.translation.equals(translation);
+	}
 }
