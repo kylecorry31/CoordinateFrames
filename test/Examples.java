@@ -25,6 +25,9 @@ public class Examples {
         assertNotEquals(point, otherPoint);
         assertEquals(new Point(0.5, 1, 1.5), point.divide(2));
         assertEquals(new Vector3(1, 2, 3), point.toVector());
+        assertEquals(new Point(0, 0, 0), point.subtract(new Vector3(1, 2, 3)));
+        assertEquals(new Point(2, 4, 6), point.add(new Vector3(1, 2, 3)));
+
     }
 
     @Test
