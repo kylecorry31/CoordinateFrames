@@ -4,7 +4,7 @@ package com.kylecorry.tf;
 import java.util.HashMap;
 import java.util.List;
 
-public class TF {
+public class TransformationMap {
 	private HashMap<String, TreeNode<Transform>> frames;
 
 	public static final String ORIGIN = "origin";
@@ -12,7 +12,7 @@ public class TF {
 	/**
 	 * Create a transformation map.
 	 */
-	public TF() {
+	public TransformationMap() {
 		Transform origin = new Transform(Vector3.zero, Quaternion.zero);
 		TreeNode<Transform> root = new TreeNode<Transform>(origin);
 		frames = new HashMap<>();

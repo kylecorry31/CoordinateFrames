@@ -58,7 +58,7 @@ public class Examples {
 
     @Test
     public void testTransforms() {
-        TF tf = new TF();
+        TransformationMap tf = new TransformationMap();
         tf.put("Test", new Pose(new Point(1, 2, 3), new Quaternion(0, Vector3.k)));
         assertEquals(new Transform(new Vector3(-1, -2, -3), new Quaternion(0, Vector3.k)), tf.lookup("Test"));
         tf.put("Testing", "Test", new Pose(new Point(0, 0, 0), new Quaternion(Math.PI / 2, Vector3.k)));
