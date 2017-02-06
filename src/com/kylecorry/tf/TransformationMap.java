@@ -14,7 +14,7 @@ public class TransformationMap {
 	 */
 	public TransformationMap() {
 		Transform origin = new Transform(Vector3.zero, Quaternion.zero);
-		TreeNode<Transform> root = new TreeNode<Transform>(origin);
+		TreeNode<Transform> root = new TreeNode<>(origin);
 		frames = new HashMap<>();
 		frames.put(ORIGIN, root);
 	}
