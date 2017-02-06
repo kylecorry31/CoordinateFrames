@@ -101,8 +101,7 @@ public class Vector3 {
      * @return The dot product of the two vectors.
      */
     public double dot(Vector3 other) {
-        double sum = x * other.x + y * other.y + z * other.z;
-        return sum;
+        return x * other.x + y * other.y + z * other.z;
     }
 
     /**
