@@ -38,26 +38,6 @@ public class Quaternion {
     }
 
     /**
-     * Add two quaternions together.
-     *
-     * @param other The other quaternion to add to this one.
-     * @return The summation of the quaternions.
-     */
-    public Quaternion add(Quaternion other) {
-        return new Quaternion(w + other.w, x + other.x, y + other.y, z + other.z);
-    }
-
-    /**
-     * Subtract two quaternions.
-     *
-     * @param other The quaternion to subtract from this.
-     * @return The difference between the two quaternions.
-     */
-    public Quaternion subtract(Quaternion other) {
-        return new Quaternion(w - other.w, x - other.x, y - other.y, z - other.z);
-    }
-
-    /**
      * Create the inverse of the quaternion.
      *
      * @return The inverse of this quaternion.
