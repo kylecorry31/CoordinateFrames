@@ -6,6 +6,9 @@ import com.kylecorry.tf.*;
 import org.junit.Test;
 
 public class Examples {
+
+    public static final double EPSILON = 0.00000001;
+
     @Test
     public void testPoint() {
         Point point = new Point(1, 2, 3);
@@ -27,8 +30,8 @@ public class Examples {
         assertEquals(new Point(0, 0, 0), Point.fromCylindrical(0, Math.PI / 2, 0));
 
 
-        assertTrue(pointApproxEqual(new Point(1, 1, 1), Point.fromCylindrical(Math.sqrt(2), Math.PI / 4, 1), 0.00000001));
-        assertTrue(pointApproxEqual(new Point(-1, 0, 3), Point.fromCylindrical(1, Math.PI, 3), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(1, 1, 1), Point.fromCylindrical(Math.sqrt(2), Math.PI / 4, 1), EPSILON));
+        assertTrue(pointApproxEqual(new Point(-1, 0, 3), Point.fromCylindrical(1, Math.PI, 3), EPSILON));
     }
 
     @Test
@@ -65,10 +68,10 @@ public class Examples {
         assertEquals(new Transform(new Vector3(-1, -2, -3), new Quaternion(0, Vector3.k)), tf.lookup("Test"));
         tf.put("Testing", "Test", new Pose(new Point(0, 0, 0), new Quaternion(Math.PI / 2, Vector3.k)));
         assertEquals(new Transform(new Vector3(0, 0, 0), new Quaternion(-Math.PI / 2, Vector3.k)), tf.lookup("Testing"));
-        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"), 0.00000001));
-        assertTrue(pointApproxEqual(new Point(2, -1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"), 0.00000001));
-        assertTrue(pointApproxEqual(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"), 0.00000001));
-        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"), EPSILON));
+        assertTrue(pointApproxEqual(new Point(2, -1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"), EPSILON));
+        assertTrue(pointApproxEqual(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"), EPSILON));
+        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"), EPSILON));
     }
 
     private boolean pointApproxEqual(Point p1, Point p2, double diff) {
@@ -97,8 +100,8 @@ public class Examples {
         assertEquals(new Quaternion(11/129.0, 2/129.0, 0, 2/129.0), new Quaternion(11, -2, 0, -2).inverse());
         assertEquals(new Quaternion(11, -30, 25, 26), new Quaternion(1, -2, 3, 2).multiply(new Quaternion(11, -2, 0, -2)));
         assertEquals(new Quaternion(-450, 628, 302, 22), new Quaternion(9, 22, 4, 6).multiply(new Quaternion(18, 28, 2, -2)));
-        assertTrue(pointApproxEqual(new Point(1, 0, 0), quaternion.rotate(new Point(0, -1, 0)), 0.00000001));
-        assertTrue(pointApproxEqual(new Point(1, 2, 3), quaternion1.rotate(new Point(1, 2, 3)), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(1, 0, 0), quaternion.rotate(new Point(0, -1, 0)), EPSILON));
+        assertTrue(pointApproxEqual(new Point(1, 2, 3), quaternion1.rotate(new Point(1, 2, 3)), EPSILON));
     }
 
 }
