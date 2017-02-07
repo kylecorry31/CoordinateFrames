@@ -63,7 +63,8 @@ public class Quaternion {
      * @return The inverse of this quaternion.
      */
     public Quaternion inverse() {
-        return new Quaternion(w, -x, -y, -z);
+        double sumOfSquares = w * w + x * x + y * y + z * z;
+        return new Quaternion(w/sumOfSquares, -x/sumOfSquares, -y/sumOfSquares, -z/sumOfSquares);
     }
 
     /**
