@@ -5,7 +5,6 @@ package com.kylecorry.tf;
  */
 public class Point {
     public double x, y, z;
-    private static final double EPSILON = 0.000000000000001;
 
     public static final Point origin = new Point(0, 0, 0);
 
@@ -130,7 +129,7 @@ public class Point {
         if (obj == null || !(obj instanceof Point))
             return false;
         Point other = (Point) obj;
-        return Math.abs(other.x - x) <= EPSILON && Math.abs(other.y - y) <= EPSILON && Math.abs(other.z - z) <= EPSILON;
+        return other.x == x && other.y == y && other.z == z;
     }
 
     @Override

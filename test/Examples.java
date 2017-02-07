@@ -1,5 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertTrue;
 
 import com.kylecorry.tf.*;
 import org.junit.Test;
@@ -24,9 +25,10 @@ public class Examples {
 
         assertEquals(new Point(0, 0, 0), Point.fromCylindrical(0, 0, 0));
         assertEquals(new Point(0, 0, 0), Point.fromCylindrical(0, Math.PI / 2, 0));
-        assertEquals(new Point(1, 1, 1), Point.fromCylindrical(Math.sqrt(2), Math.PI / 4, 1));
-        assertEquals(new Point(-1, 0, 3), Point.fromCylindrical(1, Math.PI, 3));
 
+
+        assertTrue(pointApproxEqual(new Point(1, 1, 1), Point.fromCylindrical(Math.sqrt(2), Math.PI / 4, 1), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(-1, 0, 3), Point.fromCylindrical(1, Math.PI, 3), 0.00000001));
     }
 
     @Test
@@ -63,10 +65,14 @@ public class Examples {
         assertEquals(new Transform(new Vector3(-1, -2, -3), new Quaternion(0, Vector3.k)), tf.lookup("Test"));
         tf.put("Testing", "Test", new Pose(new Point(0, 0, 0), new Quaternion(Math.PI / 2, Vector3.k)));
         assertEquals(new Transform(new Vector3(0, 0, 0), new Quaternion(-Math.PI / 2, Vector3.k)), tf.lookup("Testing"));
-        assertEquals(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"));
-        assertEquals(new Point(2, -1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"));
-        assertEquals(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"));
-        assertEquals(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"));
+        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Test"), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(2, -1, -3), tf.transform(new Point(-1, -2, -3), "Testing", "Test"), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(3, 1, 0), tf.transformToOrigin(new Point(-1, -2, -3), "Testing"), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"), 0.00000001));
+    }
+
+    private boolean pointApproxEqual(Point p1, Point p2, double diff) {
+        return Math.abs(p1.x - p2.x) <= diff && Math.abs(p1.y - p2.y) <= diff && Math.abs(p1.z - p2.z) <= diff;
     }
 
     @Test
