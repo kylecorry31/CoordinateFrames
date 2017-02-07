@@ -85,19 +85,20 @@ public class Examples {
 
     @Test
     public void testQuaternion() {
-        Quaternion quaternion = new Quaternion(90, Vector3.k);
+        Quaternion quaternion = new Quaternion(Math.PI / 2, Vector3.k);
         Quaternion quaternion1 = new Quaternion(0, Vector3.k);
 
         assertEquals(new Quaternion(0, Vector3.i), quaternion1);
         assertEquals(new Quaternion(0, Vector3.j), quaternion1);
-        assertEquals(new Quaternion(-90, Vector3.k), quaternion.inverse());
+        assertEquals(new Quaternion(-Math.PI / 2, Vector3.k), quaternion.inverse());
         assertEquals(new Quaternion(0, Vector3.k), quaternion1.inverse());
-        assertEquals(new Quaternion(90, Vector3.k), quaternion.multiply(quaternion1));
+        assertEquals(new Quaternion(Math.PI / 2, Vector3.k), quaternion.multiply(quaternion1));
         assertEquals(new Quaternion(1/18.0, 1/9.0, -1/6.0, -1/9.0), new Quaternion(1, -2, 3, 2).inverse());
         assertEquals(new Quaternion(11/129.0, 2/129.0, 0, 2/129.0), new Quaternion(11, -2, 0, -2).inverse());
         assertEquals(new Quaternion(11, -30, 25, 26), new Quaternion(1, -2, 3, 2).multiply(new Quaternion(11, -2, 0, -2)));
         assertEquals(new Quaternion(-450, 628, 302, 22), new Quaternion(9, 22, 4, 6).multiply(new Quaternion(18, 28, 2, -2)));
-        // TODO: Add more test cases for quaternion operations
+        assertTrue(pointApproxEqual(new Point(1, 0, 0), quaternion.rotate(new Point(0, -1, 0)), 0.00000001));
+        assertTrue(pointApproxEqual(new Point(1, 2, 3), quaternion1.rotate(new Point(1, 2, 3)), 0.00000001));
     }
 
 }
