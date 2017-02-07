@@ -58,6 +58,8 @@ public class Examples {
         assertEquals(Vector3.k, Vector3.i.cross(Vector3.j));
         assertEquals(Vector3.k, new Vector3(0, 0, 8).normalize());
         assertEquals(new Vector3(3 / 5.0, 4 / 5.0, 0), otherVector3.normalize());
+        assertEquals(new Vector3(1, 2, 3), Vector3.fromPoints(Point.origin, new Point(1, 2, 3)));
+        assertEquals(new Vector3(1, 2, 3), Vector3.fromPoints(new Point(1, 2, 3), new Point(2, 4, 6)));
 
     }
 
