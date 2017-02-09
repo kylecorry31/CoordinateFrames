@@ -7,7 +7,7 @@ import org.junit.Test;
 
 public class Examples {
 
-    public static final double EPSILON = 0.00000001;
+    private static final double EPSILON = 0.00000001;
 
     @Test
     public void testPoint() {
