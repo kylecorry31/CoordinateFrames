@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="CoordinateFrames:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/CoordinateFrames_jar</output-path>
+    <root id="archive" name="CoordinateFrames.jar">
+      <element id="module-output" name="CoordinateFrames" />
+    </root>
+  </artifact>
+</component>
