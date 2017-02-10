@@ -1,4 +1,5 @@
 # Coordinate Frames and Transformations
+[![Build Status](https://travis-ci.org/kylecorry31/CoordinateFrames.svg?branch=master)](https://travis-ci.org/kylecorry31/CoordinateFrames)
 This library allows for the transformation from one coordinate frame to another, allowing for objects to be specified relative to a specific frame, but then converted to another frame of reference.
 
 The following code will create a TransformationMap to convert between coordinate frames.
