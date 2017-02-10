@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/CoordinateFrames.iml" filepath="$PROJECT_DIR$/CoordinateFrames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoordinateFrames.iml" filepath="$PROJECT_DIR$/.idea/modules/CoordinateFrames.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoordinateFrames_main.iml" filepath="$PROJECT_DIR$/.idea/modules/CoordinateFrames_main.iml" group="CoordinateFrames" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/CoordinateFrames_test.iml" filepath="$PROJECT_DIR$/.idea/modules/CoordinateFrames_test.iml" group="CoordinateFrames" />
     </modules>
   </component>
 </project>

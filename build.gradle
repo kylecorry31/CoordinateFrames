@@ -1,0 +1,19 @@
+group 'com.kylecorry.tf'
+version '1.0'
+
+apply plugin: 'java'
+
+jar {
+    baseName = 'CoordinateFrames'
+}
+
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
