@@ -1,7 +1,6 @@
 package com.kylecorry.tf;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertTrue;
 
 import com.kylecorry.geometry.Point;
