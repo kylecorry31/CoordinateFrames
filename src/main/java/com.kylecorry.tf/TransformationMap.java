@@ -1,6 +1,11 @@
 package com.kylecorry.tf;
 
 
+import com.kylecorry.geometry.Point;
+import com.kylecorry.geometry.Pose;
+import com.kylecorry.geometry.Quaternion;
+import com.kylecorry.geometry.Vector3;
+
 import java.util.HashMap;
 import java.util.List;
 

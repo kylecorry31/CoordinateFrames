@@ -1,5 +1,8 @@
 package com.kylecorry.tf;
 
+import com.kylecorry.geometry.Quaternion;
+import com.kylecorry.geometry.Vector3;
+
 /**
  * A representation of a transform in 3D space.
  */
