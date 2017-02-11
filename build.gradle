@@ -4,7 +4,9 @@ version '0.5.1'
 apply plugin: 'java'
 
 jar {
-    baseName = 'CoordinateFrames'
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }
 
 
@@ -14,12 +16,6 @@ repositories {
     mavenCentral()
     flatDir {
         dirs 'libs'
-    }
-}
-
-jar {
-    from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
 
