@@ -26,6 +26,24 @@ public class Examples {
         assertTrue(pointApproxEqual(new Point(0, 0, 0), tf.transform(new Point(0, 0, 0), "Testing", "Test"), EPSILON));
     }
 
+    @Test(expected = FrameNotFoundException.class)
+    public void testLookupException() {
+        TransformationMap map = new TransformationMap();
+        map.lookup("test");
+    }
+
+    @Test(expected = FrameNotFoundException.class)
+    public void testTransformException() {
+        TransformationMap map = new TransformationMap();
+        map.transform(Point.origin, "Test", "Other");
+    }
+
+    @Test(expected = FrameNotFoundException.class)
+    public void testPutException() {
+        TransformationMap map = new TransformationMap();
+        map.put("Test", "Other", new Pose(Point.origin, Quaternion.zero));
+    }
+
     private boolean pointApproxEqual(Point p1, Point p2, double diff) {
         return Math.abs(p1.x - p2.x) <= diff && Math.abs(p1.y - p2.y) <= diff && Math.abs(p1.z - p2.z) <= diff;
     }
