@@ -1,5 +1,5 @@
 group 'com.kylecorry.tf'
-version '0.6.1'
+version '0.6.2'
 
 apply plugin: 'java'
 
@@ -16,4 +16,8 @@ repositories {
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
     compile name: 'Geometry-0.5'
+}
+
+jar {
+    from sourceSets.main.allSource
 }
