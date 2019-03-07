@@ -1,23 +1,27 @@
+plugins {
+    id "java-library"
+    id "idea"
+}
+
 group 'com.kylecorry.tf'
-version '0.6.2'
-
-apply plugin: 'java'
-
+version '0.6.3'
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    flatDir {
-        dirs 'libs'
-    }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
-    compile name: 'Geometry-0.5'
+    compile 'com.github.kylecorry31:Geometry:v0.8'
 }
 
 jar {
     from sourceSets.main.allSource
+}
+
+wrapper {
+    gradleVersion = "5.0"
 }
